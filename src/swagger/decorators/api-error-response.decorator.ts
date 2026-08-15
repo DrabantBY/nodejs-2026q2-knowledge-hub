@@ -58,7 +58,10 @@ export const ApiErrorResponse = ({
   const examples = {} as Record<string, ErrorResponseExample>;
 
   if (withUuidError) {
-    examples.invalidIdError = createBadRequestErrorValue('invalid uuid', idInvalidMessage(entity));
+    examples.invalidIdError = createBadRequestErrorValue(
+      'invalid uuid',
+      idInvalidMessage(entity),
+    );
   }
 
   if (withBodyError) {
@@ -119,4 +122,3 @@ export const ApiErrorResponse = ({
 
   return applyDecorators(...decorators);
 };
-

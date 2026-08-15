@@ -8,15 +8,24 @@ const parseValidationError = (
   invalidErrCallback: ErrorMessageCallback,
 ): string => {
   if (error.children?.length)
-    return parseValidationError(error.children[0], requiredErrCallback, invalidErrCallback);
+    return parseValidationError(
+      error.children[0],
+      requiredErrCallback,
+      invalidErrCallback,
+    );
 
   const isDefined = Object.keys(error.constraints ?? {}).includes('isDefined');
 
-  return isDefined ? requiredErrCallback(error.property) : invalidErrCallback(error.property);
+  return isDefined
+    ? requiredErrCallback(error.property)
+    : invalidErrCallback(error.property);
 };
 
 export const factoryValidatePipe =
-  (requiredErrCallback: ErrorMessageCallback, invalidErrCallback: ErrorMessageCallback) =>
+  (
+    requiredErrCallback: ErrorMessageCallback,
+    invalidErrCallback: ErrorMessageCallback,
+  ) =>
   (errors: ValidationError[]) =>
     new BadRequestException(
       parseValidationError(errors[0], requiredErrCallback, invalidErrCallback),

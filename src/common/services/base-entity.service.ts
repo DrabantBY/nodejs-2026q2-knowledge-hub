@@ -2,11 +2,17 @@ import { SORT_ORDER, type SortOrder } from '@common/const';
 import type { PaginationResponse } from '@common/types';
 
 export abstract class BaseEntityService<T extends object> {
-  protected sortBySearchParams(data: T[], sortBy?: keyof T, order?: SortOrder): void {
+  protected sortBySearchParams(
+    data: T[],
+    sortBy?: keyof T,
+    order?: SortOrder,
+  ): void {
     if (sortBy && order) {
       data.sort((a, b) => {
         if (typeof a[sortBy] === 'number' && typeof b[sortBy] === 'number')
-          return order === SORT_ORDER.ASC ? a[sortBy] - b[sortBy] : b[sortBy] - a[sortBy];
+          return order === SORT_ORDER.ASC
+            ? a[sortBy] - b[sortBy]
+            : b[sortBy] - a[sortBy];
 
         if (typeof a[sortBy] === 'string' && typeof b[sortBy] === 'string')
           return order === SORT_ORDER.ASC

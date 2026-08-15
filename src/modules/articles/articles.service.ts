@@ -3,9 +3,18 @@ import { CommentsService } from '@comments/comments.service';
 import { BaseEntityService } from '@common/services';
 import type { PaginationResponse } from '@common/types';
 import { idNotFoundMessage } from '@common/utils';
-import { forwardRef, Inject, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  forwardRef,
+  Inject,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { ARTICLE_STATUS } from './const';
-import type { ArticleSearchParamsDto, CreateArticleDto, UpdateArticleDto } from './dto';
+import type {
+  ArticleSearchParamsDto,
+  CreateArticleDto,
+  UpdateArticleDto,
+} from './dto';
 import { Article } from './entities';
 
 @Injectable()
@@ -65,7 +74,9 @@ export class ArticlesService extends BaseEntityService<Article> {
   async updateOne(id: string, dto: UpdateArticleDto): Promise<Article> {
     const oldArticle = await this.fetchOne(id);
     const newArticle = { ...oldArticle, ...dto, updatedAt: Date.now() };
-    this.store = this.store.map((article) => (article.id === oldArticle.id ? newArticle : article));
+    this.store = this.store.map((article) =>
+      article.id === oldArticle.id ? newArticle : article,
+    );
     return newArticle;
   }
 

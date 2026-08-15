@@ -31,7 +31,9 @@ export class CommentsService extends BaseEntityService<Comment> {
     page,
     limit,
   }: CommentSearchParamsDto): Promise<PaginationResponse<Comment>> {
-    const list = this.store.filter((comment) => comment.articleId === articleId);
+    const list = this.store.filter(
+      (comment) => comment.articleId === articleId,
+    );
     this.sortBySearchParams(list, sortBy, order);
     return this.mapToPagination(list, page, limit);
   }
@@ -43,9 +45,13 @@ export class CommentsService extends BaseEntityService<Comment> {
   }
 
   async insertOne(dto: CreateCommentDto): Promise<Comment> {
-    const isArticleExist = await this.articlesService.hasArticleId(dto.articleId);
+    const isArticleExist = await this.articlesService.hasArticleId(
+      dto.articleId,
+    );
     if (!isArticleExist)
-      throw new UnprocessableEntityException("Article id reference doesn't exist");
+      throw new UnprocessableEntityException(
+        "Article id reference doesn't exist",
+      );
 
     const comment = new Comment({
       id: randomUUID(),

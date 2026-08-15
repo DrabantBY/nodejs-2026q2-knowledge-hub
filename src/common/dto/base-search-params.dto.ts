@@ -2,7 +2,9 @@ import { Type } from 'class-transformer';
 import { IsEnum, IsInt, IsOptional, Min } from 'class-validator';
 import { SORT_ORDER, type SortOrder } from '../const';
 
-export const baseSearchParamsDtoFactory = <T extends Record<string, string>>(obj: T) => {
+export const baseSearchParamsDtoFactory = <T extends Record<string, string>>(
+  obj: T,
+) => {
   abstract class BaseSearchParamsDto {
     @IsEnum(obj)
     @IsOptional()
@@ -27,4 +29,3 @@ export const baseSearchParamsDtoFactory = <T extends Record<string, string>>(obj
 
   return BaseSearchParamsDto;
 };
-

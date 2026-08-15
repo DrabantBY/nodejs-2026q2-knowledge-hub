@@ -3,11 +3,19 @@ import { ArticlesService } from '@articles/articles.service';
 import { BaseEntityService } from '@common/services';
 import type { PaginationResponse } from '@common/types';
 import { idNotFoundMessage } from '@common/utils';
-import { ForbiddenException, Injectable, NotFoundException } from '@nestjs/common';
+import {
+  ForbiddenException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import bcrypt from 'bcryptjs';
 import { USER_ROLE } from './const';
-import type { CreateUserDto, UpdatePasswordDto, UserSearchParamsDto } from './dto';
+import type {
+  CreateUserDto,
+  UpdatePasswordDto,
+  UserSearchParamsDto,
+} from './dto';
 import { User } from './entities';
 
 @Injectable()
@@ -38,10 +46,15 @@ export class UsersService extends BaseEntityService<User> {
     return user;
   }
 
-  async insertOne({ login, password, role = USER_ROLE.VIEWER }: CreateUserDto): Promise<User> {
+  async insertOne({
+    login,
+    password,
+    role = USER_ROLE.VIEWER,
+  }: CreateUserDto): Promise<User> {
     const date = Date.now();
 
-    const CRYPT_SALT = Number(this.configService.get<string>('CRYPT_SALT')) || 10;
+    const CRYPT_SALT =
+      Number(this.configService.get<string>('CRYPT_SALT')) || 10;
     const bcryptPassword = await bcrypt.hash(password, CRYPT_SALT);
 
     const user: User = new User({
@@ -56,14 +69,19 @@ export class UsersService extends BaseEntityService<User> {
     return user;
   }
 
-  async updateOne(id: string, { oldPassword, newPassword }: UpdatePasswordDto): Promise<User> {
+  async updateOne(
+    id: string,
+    { oldPassword, newPassword }: UpdatePasswordDto,
+  ): Promise<User> {
     const user = await this.fetchOne(id);
 
     const isPasswordsEqual = await bcrypt.compare(oldPassword, user.password);
 
-    if (!isPasswordsEqual) throw new ForbiddenException(`Old password is wrong`);
+    if (!isPasswordsEqual)
+      throw new ForbiddenException(`Old password is wrong`);
 
-    const CRYPT_SALT = Number(this.configService.get<string>('CRYPT_SALT')) || 10;
+    const CRYPT_SALT =
+      Number(this.configService.get<string>('CRYPT_SALT')) || 10;
     const bcryptPassword = await bcrypt.hash(newPassword, CRYPT_SALT);
 
     user.password = bcryptPassword;

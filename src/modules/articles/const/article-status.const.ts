@@ -4,4 +4,5 @@ export const ARTICLE_STATUS = {
   ARCHIVED: 'ARCHIVED',
 } as const;
 
-export type ArticleStatus = (typeof ARTICLE_STATUS)[keyof typeof ARTICLE_STATUS];
+export type ArticleStatus =
+  (typeof ARTICLE_STATUS)[keyof typeof ARTICLE_STATUS];

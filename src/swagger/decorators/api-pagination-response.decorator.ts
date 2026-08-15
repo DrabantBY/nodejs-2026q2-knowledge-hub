@@ -1,5 +1,10 @@
 import { applyDecorators, type Type } from '@nestjs/common';
-import { ApiExtraModels, ApiOkResponse, ApiProperty, getSchemaPath } from '@nestjs/swagger';
+import {
+  ApiExtraModels,
+  ApiOkResponse,
+  ApiProperty,
+  getSchemaPath,
+} from '@nestjs/swagger';
 
 class PaginationResponseDto {
   @ApiProperty({
@@ -41,4 +46,3 @@ export const ApiPaginationResponse = <T extends Type<unknown>>(model: T) =>
       },
     }),
   );
-

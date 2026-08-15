@@ -1,6 +1,8 @@
-export const idInvalidMessage = (entity: string = 'Entity') => `${entity} id is invalid (not uuid)`;
+export const idInvalidMessage = (entity: string = 'Entity') =>
+  `${entity} id is invalid (not uuid)`;
 
-export const idNotFoundMessage = (entity: string = 'Entity') => `${entity} doesn't exist`;
+export const idNotFoundMessage = (entity: string = 'Entity') =>
+  `${entity} doesn't exist`;
 
 export const bodyInvalidFieldMessage = (field: string) =>
   `Request body contains invalid field: ${field}`;

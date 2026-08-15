@@ -1,4 +1,8 @@
-import { reqBodyValidatePipe, reqQueryValidatePipe, uuidValidatePipe } from '@common/pipes';
+import {
+  reqBodyValidatePipe,
+  reqQueryValidatePipe,
+  uuidValidatePipe,
+} from '@common/pipes';
 import type { PaginationResponse } from '@common/types';
 import {
   Body,
@@ -19,10 +23,18 @@ import {
   ApiOperation,
   ApiTags,
 } from '@nestjs/swagger';
-import { ApiErrorResponse, ApiPaginationResponse, ApiQueryParams } from '@swagger/decorators';
+import {
+  ApiErrorResponse,
+  ApiPaginationResponse,
+  ApiQueryParams,
+} from '@swagger/decorators';
 import { CategoriesService } from './categories.service';
 import { CATEGORY_SORT_KEY } from './const';
-import { CategorySearchParamsDto, CreateCategoryDto, UpdateCategoryDto } from './dto';
+import {
+  CategorySearchParamsDto,
+  CreateCategoryDto,
+  UpdateCategoryDto,
+} from './dto';
 import { Category } from './entities';
 
 @ApiTags('Categories Api')
@@ -50,7 +62,9 @@ export class CategoriesController {
     entity: 'Category',
     withUuidError: true,
   })
-  fetchOne(@Param('id', uuidValidatePipe('Category')) id: string): Promise<Category> {
+  fetchOne(
+    @Param('id', uuidValidatePipe('Category')) id: string,
+  ): Promise<Category> {
     return this.categoryService.fetchOne(id);
   }
 
@@ -60,7 +74,9 @@ export class CategoriesController {
   @ApiErrorResponse({
     withBodyError: true,
   })
-  insertOne(@Body(reqBodyValidatePipe()) dto: CreateCategoryDto): Promise<Category> {
+  insertOne(
+    @Body(reqBodyValidatePipe()) dto: CreateCategoryDto,
+  ): Promise<Category> {
     return this.categoryService.insertOne(dto);
   }
 
@@ -89,7 +105,9 @@ export class CategoriesController {
     withUuidError: true,
   })
   @HttpCode(HttpStatus.NO_CONTENT)
-  deleteOne(@Param('id', uuidValidatePipe('Category')) id: string): Promise<void> {
+  deleteOne(
+    @Param('id', uuidValidatePipe('Category')) id: string,
+  ): Promise<void> {
     return this.categoryService.deleteOne(id);
   }
 }

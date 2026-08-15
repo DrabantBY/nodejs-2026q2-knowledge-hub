@@ -1,5 +1,12 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
-import { IsArray, IsDefined, IsEnum, IsOptional, IsString, IsUUID } from 'class-validator';
+import {
+  IsArray,
+  IsDefined,
+  IsEnum,
+  IsOptional,
+  IsString,
+  IsUUID,
+} from 'class-validator';
 import { ARTICLE_STATUS, type ArticleStatus } from '../const';
 
 export class CreateArticleDto {
@@ -13,7 +20,8 @@ export class CreateArticleDto {
 
   @ApiProperty({
     type: String,
-    example: 'NestJS is a framework for building efficient server-side applications.',
+    example:
+      'NestJS is a framework for building efficient server-side applications.',
   })
   @IsString()
   @IsDefined()

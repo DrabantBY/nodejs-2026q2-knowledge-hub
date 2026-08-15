@@ -23,4 +23,3 @@ export class Category {
     Object.assign(this, data);
   }
 }
-

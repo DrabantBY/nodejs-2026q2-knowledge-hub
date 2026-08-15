@@ -10,7 +10,8 @@ export class Article {
 
   @ApiProperty({
     type: String,
-    example: 'NestJS is a framework for building efficient server-side applications.',
+    example:
+      'NestJS is a framework for building efficient server-side applications.',
   })
   content: string;
 

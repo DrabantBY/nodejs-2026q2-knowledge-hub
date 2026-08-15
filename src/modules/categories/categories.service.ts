@@ -4,7 +4,11 @@ import { BaseEntityService } from '@common/services';
 import type { PaginationResponse } from '@common/types';
 import { idNotFoundMessage } from '@common/utils';
 import { Injectable, NotFoundException } from '@nestjs/common';
-import type { CategorySearchParamsDto, CreateCategoryDto, UpdateCategoryDto } from './dto';
+import type {
+  CategorySearchParamsDto,
+  CreateCategoryDto,
+  UpdateCategoryDto,
+} from './dto';
 import { Category } from './entities';
 
 @Injectable()
