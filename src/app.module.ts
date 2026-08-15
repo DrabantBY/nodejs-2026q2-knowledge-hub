@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
+import { AppController } from './app.controller';
 import {
   ArticlesModule,
   CategoriesModule,
@@ -20,5 +21,6 @@ import {
     CategoriesModule,
     CommentsModule,
   ],
+  controllers: [AppController],
 })
 export class AppModule {}
