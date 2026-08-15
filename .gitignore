@@ -38,3 +38,12 @@ lerna-debug.log*
 .env
 .env.*
 !.env.example
+
+#AI
+.agents
+.claude
+.windsurf
+
+# Prisma generated files
+skills-lock.json
+/generated/prisma

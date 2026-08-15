@@ -44,3 +44,12 @@ lerna-debug.log*
 
 # other
 doc/
+
+#AI
+.agents
+.claude
+.windsurf
+
+# Prisma generated files
+skills-lock.json
+generated/prisma
