@@ -21,7 +21,7 @@ class PaginationResponseDto {
 
   @ApiProperty({
     type: 'integer',
-    example: 1,
+    example: 10,
   })
   limit: number;
 }
