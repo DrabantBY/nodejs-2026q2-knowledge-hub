@@ -25,9 +25,8 @@ export class Comment {
     format: 'uuid',
     nullable: true,
     example: '00000000-0000-0000-0000-000000000000',
-    default: null,
   })
-  authorId: string | null;
+  authorId: string;
 
   @ApiProperty({
     type: 'integer',
