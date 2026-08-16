@@ -17,7 +17,8 @@
       "@comments/*": ["src/modules/comments/*"],
       "@common/*": ["src/common/*"],
       "@swagger/*": ["src/swagger/*"],
-      "@users/*": ["src/modules/users/*"]
+      "@users/*": ["src/modules/users/*"],
+      "@generated/*": ["generated/prisma/*"]
     },
     "incremental": true,
     "skipLibCheck": true,

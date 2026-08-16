@@ -6,6 +6,7 @@ import {
   ArticlesModule,
   CategoriesModule,
   CommentsModule,
+  PrismaModule,
   UsersModule,
 } from './modules';
 
@@ -16,6 +17,7 @@ import {
       envFilePath: '.env',
     }),
     JwtModule.register({ global: true }),
+    PrismaModule,
     UsersModule,
     ArticlesModule,
     CategoriesModule,
