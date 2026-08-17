@@ -1,4 +1,4 @@
-import { Status } from '@generated/enums';
+import { Status } from '@generated/client';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class Article {

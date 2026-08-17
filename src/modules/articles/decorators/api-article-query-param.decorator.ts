@@ -1,5 +1,5 @@
 import { ARTICLE_SORT_KEY } from '@articles/const';
-import { Status } from '@generated/enums';
+import { Status } from '@generated/client';
 import { applyDecorators } from '@nestjs/common';
 import { ApiQuery } from '@nestjs/swagger';
 import { ApiQueryParams } from '@swagger/decorators';

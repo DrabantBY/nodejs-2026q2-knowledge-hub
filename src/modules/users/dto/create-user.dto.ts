@@ -1,4 +1,4 @@
-import { Role } from '@generated/enums';
+import { Role } from '@generated/client';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { IsDefined, IsEnum, IsOptional, IsString } from 'class-validator';
 

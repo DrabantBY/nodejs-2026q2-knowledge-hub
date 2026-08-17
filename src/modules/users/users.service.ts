@@ -1,7 +1,6 @@
 import type { PaginationResponse } from '@common/types';
 import { idNotFoundMessage } from '@common/utils';
-import { Prisma } from '@generated/client';
-import { Role } from '@generated/enums';
+import { Prisma, Role } from '@generated/client';
 import {
   ForbiddenException,
   Injectable,

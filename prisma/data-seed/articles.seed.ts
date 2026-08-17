@@ -1,4 +1,4 @@
-import { Status } from '@generated/enums';
+import { Status } from '@generated/client';
 
 export const ARTICLES_DATA = [
   {

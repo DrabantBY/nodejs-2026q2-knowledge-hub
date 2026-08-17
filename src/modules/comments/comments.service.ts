@@ -1,7 +1,7 @@
 import type { PaginationResponse } from '@common/types';
 import { idNotFoundMessage } from '@common/utils';
+import type { Comment as CommentModel } from '@generated/client';
 import { Prisma } from '@generated/client';
-import type { CommentModel } from '@generated/models';
 import {
   Injectable,
   NotFoundException,

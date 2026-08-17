@@ -1,5 +1,5 @@
 import { baseSearchParamsDtoFactory } from '@common/dto';
-import { Status } from '@generated/enums';
+import { Status } from '@generated/client';
 import { IsEnum, IsOptional, IsString, IsUUID } from 'class-validator';
 import { ARTICLE_SORT_KEY } from '../const';
 

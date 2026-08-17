@@ -1,4 +1,4 @@
-import { Status } from '@generated/enums';
+import { Status } from '@generated/client';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import {
   IsArray,

@@ -1,4 +1,4 @@
-import { Role } from '@generated/enums';
+import { Role } from '@generated/client';
 import { ApiProperty } from '@nestjs/swagger';
 import { Exclude } from 'class-transformer';
 
