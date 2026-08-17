@@ -47,3 +47,4 @@ lerna-debug.log*
 # Prisma generated files
 skills-lock.json
 /generated/prisma
+prisma/migrations
