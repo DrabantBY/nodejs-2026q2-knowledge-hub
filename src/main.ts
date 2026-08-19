@@ -1,4 +1,4 @@
-import '../env-config';
+import '../env.config';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { setupSwagger } from './swagger';

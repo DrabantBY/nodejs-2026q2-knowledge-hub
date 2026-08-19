@@ -1,4 +1,4 @@
-import './env-config';
+import './env.config';
 import { defineConfig, env } from 'prisma/config';
 
 export default defineConfig({

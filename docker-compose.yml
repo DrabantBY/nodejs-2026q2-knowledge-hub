@@ -9,7 +9,6 @@ services:
       - .env
     environment:
       NODE_ENV: production
-      POSTGRES_HOST: db
       DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:${POSTGRES_PORT}/${POSTGRES_DB}?schema=public
     ports:
       - "${PORT:-4000}:4000"
