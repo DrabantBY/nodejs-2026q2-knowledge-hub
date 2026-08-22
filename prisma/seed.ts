@@ -1,6 +1,5 @@
-import 'dotenv/config';
+import bcrypt from 'bcryptjs';
 import { PrismaService } from '../src/modules/prisma/prisma.service';
-
 import { ARTICLES_DATA, CATEGORIES_DATA, COMMENTS_DATA, TAGS_DATA, USERS_DATA } from './data-seed';
 
 const prisma = new PrismaService();
@@ -8,8 +7,15 @@ const prisma = new PrismaService();
 async function runSeed() {
   console.log('🌱 Seeding started...');
 
+  const CRYPT_SALT = Number(process.env.CRYPT_SALT) || 10;
+  const users = await Promise.all(
+    USERS_DATA.map(async (user) => ({
+      ...user,
+      password: await bcrypt.hash(user.password, CRYPT_SALT),
+    })),
+  );
   await prisma.user.createMany({
-    data: USERS_DATA,
+    data: users,
     skipDuplicates: true,
   });
 
